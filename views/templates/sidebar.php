@@ -26,7 +26,7 @@
             </div>
 
             <div class="enlace">
-                <a href="/admin/ordenes">
+                <a href="/admin/ordenes?fecha=<?php echo date('Y-m-d') ?>">
                     <i class="fa-solid fa-bell-concierge"></i>
                     <p>Ordenes</p>
                 </a>

@@ -29,6 +29,8 @@ class APIController {
         $_POST['fecha'] = date('Y-m-d');
         $orden = new Orden($_POST);
 
+        unset($orden->nombre);
+
         $resultado = $orden->guardar();
         $id = $resultado['id'];
 

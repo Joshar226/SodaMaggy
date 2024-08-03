@@ -7,27 +7,23 @@
         <div class="ordenes-page">
             <form>
                 <input 
+                    id="fecha"
                     class="fecha-orden"
                     type="date"
-                    value="">
+                    value="<?php echo $fecha ?>">
             </form>
 
             <div class="cuerpo-orden">
                 <div class="ordenes">
-                    <div class="orden">
-                        <h3>Nº 3</h3>
-                        <p>Joshua Araya</p>
-                        <p>local</p>
+                    <?php foreach($ordenes as $orden) { ?>
+                        <div class="orden">
+                        <h3>Nº <?php echo $orden->id ?></h3>
+                        <p><?php echo $orden->nombre ?></p>
+                        <p><?php echo $orden->modo ?></p>
                         <p>fecha</p>
                         <p>hora</p>
                     </div>
-                    <div class="orden">
-                        <h3>Nº 3</h3>
-                        <p>Dan Araya</p>
-                        <p>local</p>
-                        <p>fecha</p>
-                        <p>hora</p>
-                    </div>
+                    <?php } ?>
                 </div>
 
                 <!-- <div class="mostrar-orden">

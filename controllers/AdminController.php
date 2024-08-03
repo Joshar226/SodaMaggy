@@ -5,7 +5,8 @@ use Model\TipoProducto;
 use Model\Producto;
 use MVC\Router;
 use Intervention\Image\ImageManagerStatic as Image;
-
+use Model\Orden;
+use Model\Usuario;
 
 class AdminController {
     public static function index(Router $router) {
@@ -121,8 +122,26 @@ class AdminController {
 
     public static function ordenes(Router $router) {
         session_start();
+        $fecha = $_GET['fecha'];
+
+        $ordenes = Orden::whereNoLimit('fecha', $fecha);
+        
+        foreach($ordenes as $orden) {
+            $usuario = Usuario::where('id', $orden->usuarioId);
+            $orden->nombre = $usuario->nombre . " " . $usuario->apellido;
+            
+            if($orden->modo === "0") {
+                $orden->modo = 'Local';
+            } else {
+                $orden->modo = 'Express';
+            }
+            
+        }
+        
         $router->render('admin/ordenes', [
-            'titulo' => 'Ordenes'
+            'titulo' => 'Ordenes',
+            'fecha' => $fecha,
+            'ordenes' => $ordenes
         ]);
     }
 }

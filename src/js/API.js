@@ -20,7 +20,7 @@ const orden = {
 
 function iniciarAPI() {
     consultarTipos()
-    // mostrarResumen()
+    buscador()
 }
 
 async function consultarTipos() {
@@ -170,7 +170,7 @@ function confirmarOrden() {
         orden.modo = 1
     }
 
-    limpiar()
+    limpiar('#pedido-local')
     mostrarResumen()    
 }
 
@@ -298,10 +298,19 @@ function eliminarDeResumen(producto) {
     }    
 }
 
-function limpiar() {
-    const pedidoLocalDiv = document.querySelector('#pedido-local')
+function limpiar(elemento) {
+    const div = document.querySelector(elemento)
     
-    while(pedidoLocalDiv.firstChild) {
-        pedidoLocalDiv.removeChild(pedidoLocalDiv.firstChild)
+    while(div.firstChild) {
+        div.removeChild(div.firstChild)
     }
+}
+
+function buscador() {
+    const fechaInput = document.querySelector('#fecha')
+    
+    fechaInput.addEventListener('input', e => {
+        const fechaSeleccionada = e.target.value
+        window.location = `?fecha=${fechaSeleccionada}`
+    })
 }
