@@ -1,0 +1,31 @@
+@use "base/mixins" as *;
+@use "base/variables" as *;
+
+.header-auth {
+    position: relative;
+    height: 53rem;
+    background-image: url(../img/bg.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+
+    .bg {
+        position: absolute;
+        inset: 0;
+        background-color: rgba($negro, .4);
+    }
+
+
+    h2 {
+        font-family: $fuente-logo;
+        font-weight: normal;
+        font-size: 5rem;
+        text-decoration: dotted;
+        text-align: center;
+        padding-top: 3rem;
+        color: $blanco;
+        @include tablet {
+            padding-top: 10rem;
+        }
+    }
+}

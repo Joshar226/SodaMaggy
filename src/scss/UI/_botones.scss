@@ -1,0 +1,21 @@
+@use "base/mixins" as *;
+@use "base/variables" as *;
+
+.guardar {
+    display: flex;
+    justify-content: right;
+    @include contenedor(140rem);
+
+    .boton-guardar {
+        @include boton($azul, $blanco);
+        @include sombra;
+        width: 23rem;
+        margin-bottom: 2rem;
+        border-radius: 1rem;
+        display: none;
+    }
+
+    .mostrar {
+        display: inline-block;
+    }
+}

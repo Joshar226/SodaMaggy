@@ -1,0 +1,117 @@
+@use "base/variables" as *;
+@use "base/mixins" as *;
+
+
+.menu-mobile {
+    text-align: center;
+    font-size: 4rem;
+    color: $blanco;
+    background-color: $gris;
+    padding: 2rem 0 3rem;
+
+    .menu-logo {
+        display: inline;
+        :hover {
+            cursor: pointer;
+        }
+    }
+
+    @include tablet {
+        display: none;
+    }
+
+    h2 {
+        margin-top: 2rem;
+    }
+}
+
+.sidebar {
+    height: 100vh;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    display: none;
+    transition: opacity 300ms;
+
+    &.mostrar {
+        display: block;
+    }
+    &.opacity-in {
+        opacity: 1;
+    }
+    &.opacity-out {
+        opacity: 0;
+    }
+    
+
+    .cerrar {
+        color: $blanco;
+        text-align: right;
+        font-size: 3rem;
+        margin-right: 1rem;
+        :hover {
+            cursor: pointer;
+        }
+    }
+
+    @include tablet {
+        opacity: 1;
+        position: initial;
+        .cerrar {
+            display: none;
+        }
+    }
+
+
+    padding: 4rem 2rem;
+    background-color: rgba($negro, .8);
+
+    @include tablet {
+        background-color: $gris;
+    }
+
+
+    @include tablet {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    h2 {
+        color: $blanco;
+        text-align: center;
+        display: none;
+
+        @include tablet {
+            display: inline;
+        }
+    }
+
+    .enlace {
+        margin-top: 3rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+
+        a {
+            padding: 3rem 0;
+            color: $blanco;
+            font-size: 2.6rem;
+            transition: 300ms;
+        }
+        p {
+            margin-top: 1rem;
+            font-size: 2rem;
+            transition: 300ms;
+        }
+
+        &:hover {
+            background-color: rgba($negro, .5);
+            @include tablet {
+                background-color: darken($gris, 9);
+            }
+            border-radius: 1rem;
+        }
+
+    }
+}

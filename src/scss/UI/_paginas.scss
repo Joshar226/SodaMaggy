@@ -1,0 +1,106 @@
+@use "base/mixins" as *;
+@use "base/variables" as *;
+
+.titulo,
+.descripcion {
+    text-align: center;
+}
+.titulo {
+    padding: 3rem 0;
+}
+
+.barra {
+    @include contenedor(140rem);
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @include tablet {
+        flex-direction: row;
+    }
+
+    h1 {
+        font-family: $fuente-logo;
+        font-weight: normal;
+        font-size: 5rem;
+    }
+    a {
+        margin: 1rem 0;
+        color: $blanco;
+
+    }
+    .enlaces {
+        display: flex;
+        gap: 2rem;
+        margin-top: 3rem;
+        @include tablet {
+            margin-top: 0;
+        }
+        a {
+            font-size: 2.3rem;
+            transition: 300ms;
+            &:hover {
+                color: darken($blanco, 20);
+            }
+        }
+    }
+}
+
+.acciones {
+    @include contenedor(80rem);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    a {
+        color: $negro;
+        margin-bottom: 3rem;
+        font-size: 1.8rem;
+    }
+}
+
+.alerta {
+    @include contenedor(80rem);
+    padding: 1rem;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: $bold;
+
+    &.error{
+        background-color: lighten($rojo, 50);
+        border-left: 5px solid $rojo;
+        color: $rojo;
+
+    }
+
+    &.exito {
+        background-color: lighten($verde, 50);
+        border-left: 5px solid $verde;
+        color: $verde;
+
+    }
+}
+
+.mensaje {
+    text-align: center;
+    margin: 4rem 0 7rem;
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        @include tablet {
+            font-size: 3.5rem;
+        }
+    }
+}
+
+.boton {
+    @include boton(darken($blanco, 40), $blanco);
+    width: auto;
+}

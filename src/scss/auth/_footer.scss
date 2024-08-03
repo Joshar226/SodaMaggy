@@ -1,0 +1,39 @@
+@use "base/variables" as *;
+@use "base/mixins" as *;
+
+.footer-auth {
+    background-color: $negro;
+
+    .contenido-footer {
+        @include contenedor(140rem);
+    }
+
+    .iconos {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: -3rem 0 2rem;
+        svg {
+            height: 5rem;
+            width: 5rem;
+        }
+
+        @include tablet {
+            justify-content: flex-end;
+            margin: 0
+        }
+    }
+
+    p, a {
+        text-align: center;
+        color: $blanco;
+        line-height: 2rem;
+    }
+
+    p {
+        &:last-child {
+            padding-bottom: 3rem;
+        }
+    }
+
+}

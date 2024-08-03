@@ -1,0 +1,38 @@
+@use "base/mixins" as *;
+@use "base/variables" as *;
+
+.formulario {
+    @include contenedor(80rem);
+    margin: 5rem auto 3rem;
+    background-color: darken($blanco, 3);
+    padding: 2rem;
+    border-radius: 1rem;
+    @include sombra;
+
+    .campo {
+        margin: 2rem 0;
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+
+        label {
+            font-size: 2rem;
+        }
+    
+        input,
+        select {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid darken($blanco, 15);
+            border-radius: 1rem;
+            
+        }
+    }
+
+    .submit {
+        @include boton(darken($blanco, 40), $blanco);
+        width: auto;
+    }
+
+    
+}

@@ -1,0 +1,128 @@
+@use "base/variables" as *;
+@use "base/mixins" as *;
+
+
+.pedido-local {
+    @include contenedor(140rem);
+    @include sombra;
+    background-color: $gris-claro;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 4rem;
+    h1 {
+        color: darken($gris, 15);
+    }
+}
+
+.tipo {
+    @include contenedor(90%);
+    @include grid(5, 2rem);
+    margin-top: 2rem;
+}
+
+.cuerpo {
+    @include sombra;
+    padding: 2rem;
+    background-color: darken($blanco, 3);
+    border-radius: 1rem;
+    flex: 1;
+    :hover {
+        cursor: pointer;
+    }
+
+    img {
+        -webkit-user-drag: none;
+    }
+
+    .contenido {
+        h2 {
+            margin: 1rem 0;
+            font-size: 3rem;
+            user-select: none;
+        }
+
+        .precio {
+            color: darken($verde, 18);
+            font-size: 3rem;
+            user-select: none;
+        }
+
+        .opciones {
+            .boton {
+                margin: 1rem 0;
+
+                &.producto {
+                    @include boton($azul, $blanco)
+                }
+                &.actualizar {
+                    @include boton($naranja, $blanco)
+                }
+                &.eliminar {
+                    @include boton($rojo, $blanco)
+                }
+            }
+        }
+    }
+
+    &.agregado {
+        background-color: lighten($azul, 20);
+        h2 {
+            color: $blanco;
+        }
+        .precio {
+            color: darken($azul, 15);
+        }
+    }
+
+}
+
+
+
+.resumen-local {
+    @extend .pedido-local;
+
+    h1 {
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .total {
+        text-align: right;
+        color: darken($verde, 18);
+        @include contenedor(90%);
+    }
+
+    .tiempo {
+        @include contenedor(90%);
+        font-size: 2rem;
+        font-weight: $bold
+    }
+
+    .resumen {
+        @include contenedor(90%);
+        padding-bottom: 1rem;
+        margin: 2rem auto 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid darken($gris-claro, 20);
+
+        h3 {
+            color: darken($gris, 15);
+        }
+
+        .producto {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .precio {
+            color: darken($verde, 18);
+        }
+
+        .eliminar {
+            background-color: darken($rojo, 6);
+        }
+
+    }
+}
