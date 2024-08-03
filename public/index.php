@@ -35,6 +35,8 @@ $router->get('/admin/administrar-productos', [AdminController::class, 'administr
 
 $router->get('/admin/ordenes', [AdminController::class, 'ordenes']);
 
+$router->get('/admin/orden', [AdminController::class, 'orden']);
+
 
 $router->get('/admin/crear', [AdminController::class, 'crearProducto']);
 $router->post('/admin/crear', [AdminController::class, 'crearProducto']);

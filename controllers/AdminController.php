@@ -6,6 +6,7 @@ use Model\Producto;
 use MVC\Router;
 use Intervention\Image\ImageManagerStatic as Image;
 use Model\Orden;
+use Model\OrdenesProductos;
 use Model\Usuario;
 
 class AdminController {
@@ -128,20 +129,76 @@ class AdminController {
         
         foreach($ordenes as $orden) {
             $usuario = Usuario::where('id', $orden->usuarioId);
-            $orden->nombre = $usuario->nombre . " " . $usuario->apellido;
+            $orden->usuarioId = $usuario->nombre . " " . $usuario->apellido;
             
             if($orden->modo === "0") {
                 $orden->modo = 'Local';
             } else {
                 $orden->modo = 'Express';
             }
-            
+
+            $fechaFormateada = explode('-', $orden->fecha);
+            $orden->fecha = $fechaFormateada[2] . "/" . $fechaFormateada[1] . "/" . $fechaFormateada[0];
+
+            $horaFormateada = explode(':', $orden->hora);
+            $orden->hora =  $horaFormateada[0] . ":" . $horaFormateada[1];             
         }
+
+
         
         $router->render('admin/ordenes', [
             'titulo' => 'Ordenes',
             'fecha' => $fecha,
             'ordenes' => $ordenes
+        ]);
+    }
+
+    public static function orden(Router $router) {
+        session_start();
+
+        $id = $_GET['id'];
+
+        $orden = Orden::where('id', $id);
+
+        $usuario = Usuario::where('id', $orden->usuarioId);
+        $orden->usuarioId = $usuario->nombre . " " . $usuario->apellido;
+        
+        if($orden->modo === "0") {
+            $orden->modo = 'Local';
+        } else {
+            $orden->modo = 'Express';
+        }
+
+        $fechaFormateada = explode('-', $orden->fecha);
+        $orden->fecha = $fechaFormateada[2] . "/" . $fechaFormateada[1] . "/" . $fechaFormateada[0];
+
+        $horaFormateada = explode(':', $orden->hora);
+        $orden->hora =  $horaFormateada[0] . ":" . $horaFormateada[1];   
+        
+
+        $ordenesProductos = OrdenesProductos::whereNoLimit('ordenId', $id); 
+
+        $args = [];
+        $total = 0;
+
+        foreach($ordenesProductos as $ordenProducto) {
+            $producto = Producto::where('id', $ordenProducto->productoId);
+            $args[$producto->id][] = $producto->titulo;
+            $args[$producto->id][] = $producto->precio;
+        }
+
+        foreach($args as $arg) {
+            $precio = intval($arg[1]);
+
+            $total += $precio;
+        }
+
+        $router->render('admin/orden', [
+            'titulo' => 'Orden',
+            'id' => $id,
+            'orden' => $orden,
+            'productos' => $args,
+            'total' => $total
         ]);
     }
 }

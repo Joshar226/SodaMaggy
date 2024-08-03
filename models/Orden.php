@@ -3,14 +3,13 @@ namespace Model;
 
 class Orden extends ActiveRecord {
     protected static $tabla = 'ordenes';
-    protected static $columnasDB = ['id', 'modo', 'fecha', 'hora', 'usuarioId', 'nombre'];
+    protected static $columnasDB = ['id', 'modo', 'fecha', 'hora', 'usuarioId'];
 
     public $id;
     public $modo;
     public $fecha;
     public $hora;
     public $usuarioId;
-    public $nombre;
 
     public function __construct($args = []) {
         $this->id = $args['id'] ?? null;
@@ -18,7 +17,6 @@ class Orden extends ActiveRecord {
         $this->fecha = $args['fecha'] ?? '';
         $this->hora = $args['hora'] ?? '';
         $this->usuarioId = $args['usuarioId'] ?? null;
-        $this->nombre = $args['nombre'] ?? '';
     }
 }
 ?>

@@ -16,42 +16,15 @@
             <div class="cuerpo-orden">
                 <div class="ordenes">
                     <?php foreach($ordenes as $orden) { ?>
-                        <div class="orden">
+                        <a href="/admin/orden?id=<?php echo $orden->id ?>" class="orden">
                         <h3>Nº <?php echo $orden->id ?></h3>
-                        <p><?php echo $orden->nombre ?></p>
+                        <p><?php echo $orden->usuarioId ?></p>
                         <p><?php echo $orden->modo ?></p>
-                        <p>fecha</p>
-                        <p>hora</p>
-                    </div>
+                        <p><?php echo $orden->fecha ?></p>
+                        <p><?php echo $orden->hora ?></p>
+                    </a>
                     <?php } ?>
                 </div>
-
-                <!-- <div class="mostrar-orden">
-                    <div class="datos-usuario">
-                        <h3>Orden Nº 3</h3>
-                        <p>Joshua Araya</p>
-                        <p>Hora: 12:10</p>
-                        <p>Fecha: 3/8/24</p>
-                    </div>
-                    <div class="productos-orden">
-                        <div class="datos-producto">
-                            <h3>Hamburguesa Doble Torta</h3>
-                            <p class="precio">₡2500</p>
-                        </div>
-                        <div class="datos-producto">
-                            <h3>Hamburguesa Doble Torta</h3>
-                            <p class="precio">₡2500</p>
-                        </div>
-                        <div class="datos-producto">
-                            <h3>Hamburguesa Doble Torta</h3>
-                            <p class="precio">₡2500</p>
-                        </div>
-                        <div class="datos-producto">
-                            <h3>Hamburguesa Doble Torta</h3>
-                            <p class="precio">₡2500</p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>

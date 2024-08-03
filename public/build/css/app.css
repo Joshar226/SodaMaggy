@@ -909,6 +909,9 @@ h3 {
   gap: 2rem;
   grid-template-columns: repeat(6, 1fr);
 }
+.ordenes-page .cuerpo-orden .ordenes a {
+  color: #1a1b15;
+}
 .ordenes-page .cuerpo-orden .orden {
   -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
@@ -916,6 +919,9 @@ h3 {
   padding: 2rem;
   background-color: #FFFFFF;
   border-radius: 1rem;
+}
+.ordenes-page .cuerpo-orden .orden h3 {
+  color: #007df4;
 }
 .ordenes-page .cuerpo-orden .orden :hover {
   cursor: pointer;
@@ -929,12 +935,18 @@ h3 {
   gap: 2rem;
   grid-template-columns: repeat(2, 1fr);
 }
+.ordenes-page .cuerpo-orden .mostrar-orden .datos-usuario h3 {
+  color: #007df4;
+}
 .ordenes-page .cuerpo-orden .mostrar-orden .datos-usuario p {
   font-size: 2.3rem;
   line-height: 1.3;
 }
 .ordenes-page .cuerpo-orden .mostrar-orden .productos-orden {
   text-align: right;
+}
+.ordenes-page .cuerpo-orden .mostrar-orden .productos-orden h2 {
+  color: #018001;
 }
 .ordenes-page .cuerpo-orden .mostrar-orden .productos-orden .datos-producto {
   margin-bottom: 3rem;

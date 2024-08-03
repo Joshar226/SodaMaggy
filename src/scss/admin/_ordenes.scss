@@ -26,13 +26,20 @@
     .cuerpo-orden {
         .ordenes {
             @include grid(6, 2rem);
+            a {
+                color: $negro
+            }
         }
-       
+
         .orden {
             @include sombra;
             padding: 2rem;
             background-color: $blanco;
             border-radius: 1rem;
+
+            h3 {
+                color: $azul;
+            }
 
             :hover {
                 cursor: pointer;
@@ -48,6 +55,9 @@
             @include grid(2,2rem);
 
             .datos-usuario {
+                h3 {
+                    color: $azul;
+                }
                 p {
                     font-size: 2.3rem;
                     line-height: 1.3;
@@ -56,6 +66,10 @@
 
             .productos-orden {
                 text-align: right;
+
+                h2 {
+                    color: darken($verde, 18);
+                }
 
                 .datos-producto {
                     margin-bottom: 3rem;
