@@ -9,10 +9,15 @@
     .boton-guardar {
         @include boton($azul, $blanco);
         @include sombra;
-        width: 23rem;
-        margin-bottom: 2rem;
+        width: 90%;
+        margin: 0 auto 2rem;
         border-radius: 1rem;
         display: none;
+
+        @include tablet {
+            width: 23rem;
+            margin: 0 2rem 2rem 0;
+        }
     }
 
     .mostrar {

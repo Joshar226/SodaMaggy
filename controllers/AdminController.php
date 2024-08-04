@@ -11,7 +11,7 @@ use Model\Usuario;
 
 class AdminController {
     public static function index(Router $router) {
-        session_start();
+        auth();
         
         $router->render('admin/index', [
             'titulo' => "Pedido Local"
@@ -19,7 +19,7 @@ class AdminController {
     }
 
     public static function crearTipo(Router $router) {
-        session_start();
+        auth();
 
         $tipo = new TipoProducto();
 
@@ -57,7 +57,7 @@ class AdminController {
     }
 
     public static function crearProducto(Router $router) {
-        session_start();
+        auth();
 
         $producto = new Producto();
         $alertas = [];
@@ -97,7 +97,7 @@ class AdminController {
     }
 
     public static function administrarTipos(Router $router) {
-        session_start();
+        auth();
 
         $tipos = TipoProducto::all();
 
@@ -109,7 +109,7 @@ class AdminController {
     }
 
     public static function actualizarTipo(Router $router) {
-        session_start();
+        auth();
         $alertas = [];
 
         $id = $_GET['id'];
@@ -167,7 +167,7 @@ class AdminController {
     }
 
     public static function actualizarProducto(Router $router) {
-        session_start();
+        auth();
         $alertas = [];
 
         $producto = Producto::where('id', $_GET['id']);
@@ -203,7 +203,7 @@ class AdminController {
     }
 
     public static function administrarProductos(Router $router) {
-        session_start();
+        auth();
 
         $id = $_GET['id'];
 
@@ -216,7 +216,7 @@ class AdminController {
     }
 
     public static function ordenes(Router $router) {
-        session_start();
+        auth();
         $fecha = $_GET['fecha'];
 
         $ordenes = Orden::whereNoLimit('fecha', $fecha);
@@ -248,7 +248,7 @@ class AdminController {
     }
 
     public static function orden(Router $router) {
-        session_start();
+        auth();
 
         $id = $_GET['id'];
 

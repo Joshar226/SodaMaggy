@@ -16,8 +16,12 @@
 
 .tipo {
     @include contenedor(90%);
-    @include grid(5, 2rem);
+    @include grid(2, 2rem);
     margin-top: 2rem;
+
+    @include tablet {
+        @include grid(5, 2rem);
+    }
 }
 
 .cuerpo {
@@ -27,8 +31,6 @@
     border-radius: 1rem;
     flex: 1;
 
-
-
     img {
         -webkit-user-drag: none;
     }
@@ -36,14 +38,21 @@
     .contenido {
         h2 {
             margin: 1rem 0;
-            font-size: 3rem;
+            font-size: 1.6rem;
             user-select: none;
+
+            @include tablet {
+                font-size: 3rem;
+            }
         }
 
         .precio {
             color: darken($verde, 18);
-            font-size: 3rem;
+            font-size: 1.6rem;
             user-select: none;
+            @include tablet {
+                font-size: 3rem;
+            }
         }
 
         .opciones {
@@ -51,13 +60,16 @@
                 margin: 1rem 0;
 
                 &.producto {
-                    @include boton($azul, $blanco)
+                    @include boton($azul, $blanco);
+                    padding: 1rem;
                 }
                 &.actualizar {
-                    @include boton($naranja, $blanco)
+                    @include boton($naranja, $blanco);
+                    padding: 1rem;
                 }
                 &.eliminar {
-                    @include boton($rojo, $blanco)
+                    @include boton($rojo, $blanco);
+                    padding: 1rem;
                 }
             }
         }
@@ -88,14 +100,24 @@
     @extend .pedido-local;
 
     h1 {
+        font-size: 3rem;
         text-align: center;
         padding: 1rem 0;
+
+        @include tablet {
+            font-size: 4rem;
+        }
     }
 
     .total {
         text-align: right;
         color: darken($verde, 18);
         @include contenedor(90%);
+        font-size: 2.5rem;
+
+        @include tablet {
+            font-size: 3.5rem
+        }
     }
 
     .tiempo {
@@ -112,14 +134,21 @@
         justify-content: space-between;
         align-items: center;
         border-bottom: 2px solid darken($gris-claro, 20);
+        gap: 2rem;
 
         h3 {
             color: darken($gris, 15);
+            font-size: 1.7rem;
+
+            @include tablet {
+                font-size: 3rem;
+            }
         }
 
         .producto {
             display: flex;
             gap: 2rem;
+            align-items: center;
         }
 
         .precio {
@@ -128,6 +157,10 @@
 
         .eliminar {
             background-color: darken($rojo, 6);
+            padding: .7rem;
+            @include tablet {
+                padding: 1rem 2rem;
+            }
         }
 
     }
