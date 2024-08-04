@@ -28,6 +28,9 @@ $router->get('/auth/reestablecer', [AuthController::class, 'reestablecer']);
 $router->post('/auth/reestablecer', [AuthController::class, 'reestablecer']);
 
 
+//Area Publica
+$router->get('/', [AuthController::class, 'index']);
+
 //Area de administracion
 $router->get('/admin/administrar-tipos', [AdminController::class, 'administrarTipos']);
 

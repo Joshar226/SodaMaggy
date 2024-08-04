@@ -8,6 +8,10 @@ use Classes\Email;
 
 class AuthController {
 
+    public static function index() {
+        header('location: /auth/login');
+    }
+
     public static function login(Router $router) {
         $alertas = [];
 
