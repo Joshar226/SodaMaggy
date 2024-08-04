@@ -37,5 +37,18 @@ class Producto extends ActiveRecord {
         }
         return self::$alertas;
     }
+
+    public function validarActualizarProducto() {
+        if(!$this->titulo) {
+            self::$alertas['error'][] = 'Ingrese el titulo producto';
+        }
+        if(!$this->precio) {
+            self::$alertas['error'][] = 'Ingrese precio del Producto';
+        }
+        if(!$this->idTipo) {
+            self::$alertas['error'][] = 'Seleccione el Tipo';
+        }
+        return self::$alertas;
+    }
 }
 ?>

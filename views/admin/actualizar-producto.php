@@ -33,6 +33,7 @@
             id="imagen"
             name="imagen">
     </div>
+    <img class="actualizar-tipo-img" src="/imagenes/<?php echo $producto->imagen ?>" alt="Producto Imagen">
 
     <div class="campo">
         <label for="idTipo">Tipo</label>

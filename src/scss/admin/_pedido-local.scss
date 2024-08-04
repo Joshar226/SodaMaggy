@@ -26,9 +26,8 @@
     background-color: darken($blanco, 3);
     border-radius: 1rem;
     flex: 1;
-    :hover {
-        cursor: pointer;
-    }
+
+
 
     img {
         -webkit-user-drag: none;
@@ -74,6 +73,13 @@
         }
     }
 
+}
+
+.cuerpo-producto {
+    @extend .cuerpo;
+    :hover {
+        cursor: pointer;
+    }
 }
 
 

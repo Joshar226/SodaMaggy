@@ -83,7 +83,7 @@ function mostrarProductos(tipo) {
     mostrar.productos.forEach(producto => {
         if(tipo.id === producto.idTipo) {
             const cuerpoDiv = document.createElement('DIV')
-            cuerpoDiv.classList.add('cuerpo')
+            cuerpoDiv.classList.add('cuerpo-producto')
             cuerpoDiv.dataset.idProducto = producto.id
             cuerpoDiv.onclick = function() {
                 seleccionarProducto(producto)

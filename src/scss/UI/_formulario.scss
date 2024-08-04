@@ -9,6 +9,8 @@
     border-radius: 1rem;
     @include sombra;
 
+
+
     .campo {
         margin: 2rem 0;
         display: flex;
@@ -27,6 +29,12 @@
             border-radius: 1rem;
             
         }
+    }
+
+    .actualizar-tipo-img {
+        width: 20rem;
+        display: block;
+        margin-bottom: 1.5rem
     }
 
     .submit {

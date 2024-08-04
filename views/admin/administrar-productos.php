@@ -17,8 +17,12 @@
                     <h3 class="precio">₡<?php echo $producto->precio ?></h3>
 
                     <div class="opciones">
-                        <a href="admin/actualizar-tipo" class="boton actualizar">Actualizar</a>
-                        <button href="admin/eliminar-tipo" class="boton eliminar">Eliminar</button>
+                        <a href="actualizar-producto?id=<?php echo $producto->id ?>" class="boton actualizar">Actualizar</a>
+                        <form method="post" action="/admin/eliminar-producto">
+                            <input type="hidden" name="id" value="<?php echo $producto->id ?>">
+
+                            <input type="submit" class="boton eliminar" value="Eliminar">
+                        </form>
                     </div>
                 </div>
             </div>

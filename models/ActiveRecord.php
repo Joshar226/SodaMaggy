@@ -165,11 +165,11 @@ class ActiveRecord {
         $atributos = $this->sanitizarAtributos();
 
         // Insertar en la base de datos
-        $query = " INSERT INTO " . static::$tabla . " ( ";
-        $query .= join(', ', array_keys($atributos));
+        $query = " INSERT INTO " . static::$tabla . " (";
+        $query .= join(',', array_keys($atributos));
         $query .= " ) VALUES ('"; 
-        $query .= join("', '", array_values($atributos));
-        $query .= " ') ";
+        $query .= join("','", array_values($atributos));
+        $query .= "') ";
 
         // debuguear($query); // Descomentar si no te funciona algo
 

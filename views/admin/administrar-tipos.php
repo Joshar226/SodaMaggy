@@ -16,8 +16,12 @@
 
                     <div class="opciones">
                         <a href="administrar-productos?id=<?php echo $tipo->id ?>" class="boton producto">Productos</a>
-                        <a href="actualizar-tipo" class="boton actualizar">Actualizar</a>
-                        <button href="eliminar-tipo" class="boton eliminar">Eliminar</button>
+                        <a href="actualizar-tipo?id=<?php echo $tipo->id ?>" class="boton actualizar">Actualizar</a>
+                        <form method="post" action="/admin/eliminar-tipo">
+                            <input type="hidden" name="id" value="<?php echo $tipo->id ?>">
+
+                            <input type="submit" class="boton eliminar" value="Eliminar">
+                        </form>
                     </div>
                 </div>
             </div>

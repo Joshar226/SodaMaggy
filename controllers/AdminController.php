@@ -108,6 +108,100 @@ class AdminController {
         ]);
     }
 
+    public static function actualizarTipo(Router $router) {
+        session_start();
+        $alertas = [];
+
+        $id = $_GET['id'];
+        $tipo = TipoProducto::where('id',$id);
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $tipo->sincronizar($_POST);
+
+            if($_FILES['imagen']['tmp_name']) {
+                $nombreImagen = md5(uniqid()) . '.jpg';
+
+                $image = Image::make($_FILES['imagen']['tmp_name'])->fit(800,600);
+                $tipo->setImagen($nombreImagen);
+                $image->save(CARPETA_IMAGENES . $nombreImagen);
+            }
+
+            if(!$tipo->titulo) {
+                $alertas = $tipo->setAlerta('error', 'Ingrese el nuevo titulo');
+            }
+
+            if(empty($alertas)) {
+                $tipo->guardar();
+                $alertas = $tipo->setAlerta('exito', 'Tipo actualizado correctamente');
+            }
+        }
+
+        $router->render('admin/actualizar-tipo', [
+            'titulo' => "Actualizar Tipo",
+            'tipo' => $tipo,
+            'alertas' => $alertas
+        ]);
+    }
+
+    public static function eliminarTipo() {
+        $id = $_POST['id'];
+        $tipo = TipoProducto::where('id', $id);
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            unlink(CARPETA_IMAGENES . $tipo->imagen);
+            $tipo->eliminar();
+            header('location: /admin/administrar-tipos');
+        }
+    }
+
+    public static function eliminarProducto() {
+
+        $id = $_POST['id'];
+        $producto = Producto::where('id', $id);
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            unlink(CARPETA_IMAGENES . $producto->imagen);
+            $producto->eliminar();
+            header('location: /admin/administrar-tipos');
+        }
+    }
+
+    public static function actualizarProducto(Router $router) {
+        session_start();
+        $alertas = [];
+
+        $producto = Producto::where('id', $_GET['id']);
+        $tipos = TipoProducto::all();
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $producto->sincronizar($_POST);
+
+            if($_FILES['imagen']['tmp_name']) {
+                $nombreImagen = md5(uniqid()) . '.jpg';
+
+                $image = Image::make($_FILES['imagen']['tmp_name'])->fit(800,600);
+                $producto->setImagen($nombreImagen);
+                $image->save(CARPETA_IMAGENES . $nombreImagen);
+            }
+
+            $alertas = $producto->validarActualizarProducto();
+
+            if(empty($alertas)) {
+                $producto->guardar();
+                $alertas = $producto->setAlerta('exito', 'Tipo actualizado correctamente');
+            }
+        }
+
+
+        
+        $router->render('admin/actualizar-producto', [
+            'titulo' => "Actualizar Producto",
+            'producto' => $producto,
+            'tipos' => $tipos,
+            'alertas' => $alertas
+        ]);
+    }
+
     public static function administrarProductos(Router $router) {
         session_start();
 

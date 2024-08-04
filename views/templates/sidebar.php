@@ -19,16 +19,16 @@
         <?php if ($_SESSION['admin']) { ?>
 
             <div class="enlace">
-                <a href="/admin/administrar-tipos">
-                    <i class="fa-solid fa-user"></i>
-                    <p>Administracion</p>
+                <a href="/admin/ordenes?fecha=<?php echo date('Y-m-d') ?>">
+                    <i class="fa-solid fa-bell-concierge"></i>
+                    <p>Ordenes</p>
                 </a>
             </div>
 
             <div class="enlace">
-                <a href="/admin/ordenes?fecha=<?php echo date('Y-m-d') ?>">
-                    <i class="fa-solid fa-bell-concierge"></i>
-                    <p>Ordenes</p>
+                <a href="/admin/administrar-tipos">
+                    <i class="fa-solid fa-user"></i>
+                    <p>Administracion</p>
                 </a>
             </div>
 

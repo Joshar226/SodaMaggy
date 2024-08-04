@@ -5,6 +5,7 @@
         <h1 class="titulo"><?php echo $titulo ?></h1>
 
         <div class="ordenes-page">
+            
             <div class="cuerpo-orden">
                 <div class="mostrar-orden">
                     <div class="datos-usuario">

@@ -40,9 +40,16 @@ $router->get('/admin/orden', [AdminController::class, 'orden']);
 
 $router->get('/admin/crear', [AdminController::class, 'crearProducto']);
 $router->post('/admin/crear', [AdminController::class, 'crearProducto']);
+$router->get('/admin/actualizar-producto', [AdminController::class, 'actualizarProducto']);
+$router->post('/admin/actualizar-producto', [AdminController::class, 'actualizarProducto']);
+$router->post('/admin/eliminar-producto', [AdminController::class, 'eliminarProducto']);
+
 
 $router->get('/admin/crear-tipo', [AdminController::class, 'crearTipo']);
 $router->post('/admin/crear-tipo', [AdminController::class, 'crearTipo']);
+$router->get('/admin/actualizar-tipo', [AdminController::class, 'actualizarTipo']);
+$router->post('/admin/actualizar-tipo', [AdminController::class, 'actualizarTipo']);
+$router->post('/admin/eliminar-tipo', [AdminController::class, 'eliminarTipo']);
 
 $router->get('/admin', [AdminController::class, 'index']);
 

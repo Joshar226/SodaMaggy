@@ -27,5 +27,12 @@ class TipoProducto extends ActiveRecord {
 
         return self::$alertas;
     }
+
+    public function validarActualizarTipo() {
+        if(!$this->titulo) {
+            self::$alertas['error'][] = 'Ingrese el nuevo titulo del Tipo';
+        }
+        return self::$alertas;
+    }
 }
 ?>
