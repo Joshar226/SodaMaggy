@@ -67,7 +67,7 @@ class AuthController {
                 $email->enviarConfirmacion();
 
                 if($resultado) {
-                    header('location: /mensaje');
+                    header('location: /auth/mensaje');
                 }
             }
             
