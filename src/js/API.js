@@ -19,8 +19,15 @@ const orden = {
 
 
 function iniciarAPI() {
-    consultarTipos()
-    buscador()
+    if(window.location.pathname === '/admin') {
+        consultarTipos()
+    }
+    
+    if(window.location.pathname.includes('/ordenes')) {
+        buscador()
+    }
+    
+    
 }
 
 async function consultarTipos() {

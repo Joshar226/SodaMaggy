@@ -48,7 +48,7 @@ class Router
 
         $contenido = ob_get_clean(); // Limpia el Buffer
 
-        if(str_contains($_SERVER['PATH_INFO'], '/auth')) {
+        if(str_contains($_SERVER['REQUEST_URI'], '/auth')) {
             include_once __DIR__ . '/views/auth-layout.php';
         } else {
             include_once __DIR__ . '/views/layout.php';
