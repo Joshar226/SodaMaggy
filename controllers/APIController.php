@@ -33,7 +33,6 @@ class APIController {
         $id = $resultado['id'];
 
         $idProductos = explode(',', $_POST['productos']);
-        // debuguear($idProductos);
 
         foreach( $idProductos as $idProducto) {
             $args = [
@@ -43,7 +42,7 @@ class APIController {
             $ordenProducto = new OrdenesProductos($args);
             $ordenProducto->guardar();
         }
-        json_encode($resultado);
+        echo json_encode($resultado);
     }   
 }
 ?>

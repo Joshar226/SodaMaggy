@@ -190,7 +190,9 @@ function mostrarResumen() {
 
     const btnGuardarPedido = document.querySelector('#guardar')
     btnGuardarPedido.classList.add('mostrar')
-    btnGuardarPedido.onclick = guardarOrden
+    btnGuardarPedido.onclick = function() {
+        guardarOrden();
+    }
 
     const pedidoLocalDiv = document.querySelector('#pedido-local')
 
@@ -268,14 +270,7 @@ async function guardarOrden() {
     datos.append('hora', hora)
     datos.append('productos', productoId)
 
-    Swal.fire({
-        icon: "success",
-        title: "Guardado Exitosamente"
-    });
 
-    setTimeout(() => {
-        window.location.reload()
-    }, 2000);
 
     try {
         const url = '/api/guardar'
@@ -283,7 +278,21 @@ async function guardarOrden() {
             method: 'POST',
             body: datos
         })
+
         const resultado = await respuesta.json()
+
+        if(resultado.resultado) {
+            Swal.fire({
+                title: "Orden Creada Correctamente",
+                icon: "success"
+            });
+
+            setTimeout(() => {
+                window.location.reload()
+            }, 2000);
+        }
+        
+        
         
     } catch (error) {
         console.log(error);
